@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorry Nuzu... Please Maan Jao 🥺</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #fdf3f3;
+            background-image: radial-gradient(#ffccd5 1px, transparent 1px);
+            background-size: 20px 20px;
+            color: #4a4a4a;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 650px;
+            width: 100%;
+            background: white;
+            padding: 30px;
+            border-radius: 24px;
+            box-shadow: 0 15px 35px rgba(214, 48, 49, 0.15);
+            text-align: center;
+            margin-bottom: 30px;
+            border: 2px solid #ffccd5;
+        }
+
+        h1 {
+            color: #d63031;
+            margin-bottom: 10px;
+            font-size: 2.3rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: #636e72;
+            margin-bottom: 25px;
+            font-style: italic;
+        }
+
+        /* Letter Box Style */
+        .letter-box {
+            background: #fff9f9;
+            border: 2px dashed #ff8787;
+            border-radius: 18px;
+            padding: 25px;
+            margin-bottom: 30px;
+            text-align: left;
+            line-height: 1.8;
+            font-size: 1.1rem;
+            color: #2d3436;
+        }
+
+        .letter-box h3 {
+            color: #d63031;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .poster-box {
+            width: 100%;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            border: 3px solid #fff;
+            outline: 1px solid #ff8787;
+        }
+
+        .poster-img {
+            width: 100%;
+            display: block;
+        }
+
+        .section-title {
+            font-size: 1.3rem;
+            color: #d63031;
+            margin: 25px 0 15px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .video-box {
+            width: 100%;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            background: #000;
+            margin-bottom: 30px;
+        }
+
+        video {
+            width: 100%;
+            display: block;
+        }
+
+        .audio-box {
+            background: #fff0f0;
+            padding: 15px 20px;
+            border-radius: 50px;
+            margin-bottom: 35px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            border: 2px dashed #ff8787;
+        }
+
+        .audio-title {
+            font-size: 0.95rem;
+            color: #e17055;
+            font-weight: bold;
+            animation: pulse 1.5s infinite;
+        }
+
+        audio {
+            width: 100%;
+        }
+
+        .activity-card {
+            background: #fff8f8;
+            border: 1px solid #ffe3e3;
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 35px;
+            text-align: left;
+        }
+
+        .activity-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px dashed #ffd3d3;
+        }
+
+        .activity-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .checkbox-custom {
+            width: 22px;
+            height: 22px;
+            border: 2px solid #ff7675;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .checkbox-custom.checked {
+            background: #ff7675;
+            border-color: #ff7675;
+        }
+
+        .checkbox-custom.checked::after {
+            content: "✓";
+        }
+
+        .activity-text {
+            font-size: 1rem;
+            color: #2d3436;
+        }
+
+        .activity-text.crossed {
+            text-decoration: line-through;
+            color: #b2bec3;
+        }
+
+        .love-meter-box {
+            background: #fff;
+            border: 2px solid #ffccd5;
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 35px;
+        }
+
+        .meter-bg {
+            width: 100%;
+            height: 20px;
+            background: #eee;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 15px 0;
+            position: relative;
+        }
+
+        .meter-fill {
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(90deg, #ff7675, #d63031);
+            transition: width 0.5s ease;
+        }
+
+        .click-btn {
+            background: #ff7675;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(255, 118, 117, 0.3);
+            transition: all 0.2s;
+        }
+
+        .click-btn:hover {
+            background: #e66767;
+            transform: translateY(-2px);
+        }
+
+        .decision-title {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #2d3436;
+            margin-bottom: 20px;
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            position: relative;
+            min-height: 60px;
+        }
+
+        .btn {
+            padding: 14px 28px;
+            font-size: 1.15rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .btn-yes {
+            background-color: #2ecc71;
+            color: white;
+            min-width: 160px;
+        }
+
+        .btn-yes:hover {
+            background-color: #27ae60;
+            transform: scale(1.08);
+            box-shadow: 0 6px 20px rgba(46, 204, 113, 0.3);
+        }
+
+        .btn-no {
+            background-color: #e74c3c;
+            color: white;
+            position: absolute;
+            z-index: 10;
+            min-width: 120px;
+        }
+
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.9);
+            background: white;
+            padding: 35px;
+            border-radius: 24px;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.3);
+            z-index: 1000;
+            text-align: center;
+            width: 90%;
+            max-width: 420px;
+            transition: all 0.3s ease;
+        }
+
+        .popup.active {
+            display: block;
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(4px);
+            z-index: 999;
+        }
+
+        .overlay.active {
+            display: block;
+        }
+
+        .popup h2 {
+            color: #2ecc71;
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+        }
+
+        .popup p {
+            font-size: 1.05rem;
+            line-height: 1.6;
+            color: #636e72;
+            margin-bottom: 25px;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+        }
+
+        .heart-particle {
+            position: fixed;
+            bottom: -10%;
+            color: #ff7675;
+            font-size: 1.5rem;
+            pointer-events: none;
+            z-index: 1;
+            animation: floatUp 4s linear forwards;
+        }
+
+        @media(max-width: 480px) {
+            .container { padding: 18px; }
+            h1 { font-size: 1.8rem; }
+            .btn { width: 100%; }
+            .btn-group { flex-direction: column; gap: 10px; }
+            .btn-no { position: relative; left: 0 !important; top: 0 !important; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container" style="position: relative; z-index: 10;">
+        <h1>Sorry Nuzu... 🥺</h1>
+        <p class="subtitle">Mera mazaak tha, maqsad nahi todna tha tumhara dil...</p>
+
+        <!-- Poster Box -->
+        <div class="poster-box">
+            <img src="poster.png" alt="Sorry Nuzu Poster" class="poster-img">
+        </div>
+
+        <!-- Personal Sorry Letter Section From Poster -->
+        <div class="letter-box">
+            <h3>💌 My Personal Letter For You</h3>
+            <p><strong>Dear Nuzu,</strong></p>
+            <p>Kal maine tumhara mazaak udaya... bas mazaak mein. Lekin agar uss mazaak ne tumhe hurt kiya, to uske liye main dil se sorry bolta hoon. 🥺</p>
+            <p style="color: #d63031; font-weight: 500; margin-top: 8px;">Tumhari hasi achhi lagti hai, tumhari baatein achhi lagti hain, aur tumhara ruthna... bilkul bhi nahi. 💔</p>
+            <p style="font-size: 0.95rem; color: #636e72; margin-top: 15px; border-top: 1px dashed #ffccd5; padding-top: 10px; text-align: right; font-style: italic;">From: Ek Pachtata Hua Dost 🌹</p>
+        </div>
+
+        <!-- Interactive Activity Checkboxes (Meri Galtiyan & Mera Vaada) -->
+        <div class="section-title">✨ Meri Galtiyan & Mera Vaada ✨</div>
+        <div class="activity-card">
+            <div style="font-weight: bold; color: #e74c3c; margin-bottom: 8px;">❌ Meri Galtiyan:</div>
+            <div class="activity-item">
+                <div class="checkbox-custom checked"></div>
+                <div class="activity-text crossed">Zyada mazaak kar diya 😔</div>
+            </div>
+            <div class="activity-item">
+                <div class="checkbox-custom checked"></div>
+                <div class="activity-text crossed">Tumhari feelings samajh nahi paaya 😥</div>
+            </div>
+            <div class="activity-item">
+                <div class="checkbox-custom checked"></div>
+                <div class="activity-text crossed">Tumhe hurt kar diya 😣</div>
+            </div>
+            <div class="activity-item">
+                <div class="checkbox-custom checked"></div>
+                <div class="activity-text crossed">Sorry bolne me late kar diya 😭</div>
+            </div>
+
+            <div style="font-weight: bold; color: #2ecc71; margin: 18px 0 8px 0;">✅ Mera Vaada:</div>
+            <div class="activity-item">
+                <div class="checkbox-custom checked"></div>
+                <div class="activity-text">Aage se limit me mazaak karunga ❤️</div>
+            </div>
+            <div class="activity-item">
+                <div class="checkbox-custom checked"></div>
+                <div class="activity-text">Tumhari feelings ka dhyaan rakhunga ❤️</div>
+            </div>
+            <div class="activity-item">
+                <div class="checkbox-custom checked"></div>
+                <div class="activity-text">Tumhe kabhi hurt nahi karunga ❤️</div>
+            </div>
+            <div class="activity-item">
+                <div class="checkbox-custom checked"></div>
+                <div class="activity-text">Hamesha tumhari smile ki wajah banunga 💖</div>
+            </div>
+
+            <div style="font-weight: bold; color: #ff7675; margin: 18px 0 8px 0;">🎁 Special Sorry Gifts For You:</div>
+            <p style="font-size: 0.95rem; padding-left: 5px; line-height: 1.6; color: #2d3436;">
+                💕 Unlimited Sorrys <br>
+                💕 1000 Baar Maafi <br>
+                💕 Lifetime No Over-Mazaak Policy <br>
+                💕 Hamesha Tumhari Side <br>
+                💕 Ek Saccha Dost
+            </p>
+
+            <div style="border-top: 1px solid #ffd3d3; margin-top: 15px; padding-top: 10px;">
+                <div class="activity-item">
+                    <div class="checkbox-custom" id="check4" onclick="toggleCheck()"></div>
+                    <div class="activity-text" id="text4"><strong>Nuzu ne dil se maaf kiya (Tick karo yahan) 👉👈</strong></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Maafi Meter Activity -->
+        <div class="section-title">❤️ Maafi Tracker Meter ❤️</div>
+        <div class="love-meter-box">
+            <p style="font-size: 0.95rem; color:#636e72;">Is button ko tap karke Maafi Meter ko 100% full karo!</p>
+            <div class="meter-bg">
+                <div class="meter-fill" id="meterFill"></div>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span id="meterText" style="font-weight: bold; color: #ff7675;">Meter: 0%</span>
+                <button class="click-btn" onclick="boostMeter()">Tap to Forgive 🥰</button>
+            </div>
+        </div>
+
+        <!-- Video Section -->
+        <div class="section-title">📹 A Special Video For You</div>
+        <div class="video-box">
+            <video controls>
+                <source src="video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+        <!-- Background Song Section -->
+        <div class="section-title">🎵 Background Music Track</div>
+        <div class="audio-box">
+            <span class="audio-title">▶ Now Playing: Cute Apology Track 🎧</span>
+            <audio controls autoplay loop id="bgMusic">
+                <source src="song.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <!-- Ultimate Decision Section -->
+        <div class="decision-title">Bas itna sa request hai... Maan jao na Nuzu... 🥺</div>
+        
+        <div class="btn-group" id="btnGroup">
+            <button class="btn btn-yes" onclick="triggerSuccess()">Haa, Maaf kiya ❤️</button>
+            <button class="btn btn-no" id="noBtn" onmouseover="runAway()" onclick="runAway()">Nahi 😡</button>
+        </div>
+    </div>
+
+    <!-- Success Popup -->
+    <div class="overlay" id="overlay"></div>
+    <div class="popup" id="popup">
+        <h2>"Theek hai, maaf kiya" 🎉🥳</h2>
+        <p>Thank you so much Nuzu! <br>Tumhari khamoshi se zyada bura kuch nahi lagta... Ab hamesha smile barkarar rakhna! ✨❤️</p>
+        <button class="btn btn-yes" style="width: 100%;" onclick="closeAll()">Chalo, Smile Kar Di! 😊</button>
+    </div>
+
+    <script>
+        window.onload = function() {
+            resetNoButton();
+        }
+
+        function resetNoButton() {
+            const noBtn = document.getElementById('noBtn');
+            noBtn.style.position = 'absolute';
+            noBtn.style.right = '40px';
+            noBtn.style.top = '0px';
+        }
+
+        function toggleCheck() {
+            const chk = document.getElementById('check4');
+            const txt = document.getElementById('text4');
+            chk.classList.toggle('checked');
+            txt.classList.toggle('crossed');
+        }
+
+        let meterValue = 0;
+        function boostMeter() {
+            if(meterValue < 100) {
+                meterValue += 20;
+                if(meterValue > 100) meterValue = 100;
+                document.getElementById('meterFill').style.width = meterValue + '%';
+                document.getElementById('meterText').innerText = 'Meter: ' + meterValue + '%';
+                
+                createHeart();
+                
+                if(meterValue === 100) {
+                    document.getElementById('meterText').innerText = '100% Maaf Kiya! ❤️';
+                    document.getElementById('meterText').style.color = '#2ecc71';
+                }
+            }
+        }
+
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart-particle');
+            heart.innerHTML = ['❤️','💖','🥺','✨'][Math.floor(Math.random() * 4)];
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.fontSize = (Math.random() * 20 + 15) + 'px';
+            heart.style.animationDuration = (Math.random() * 2 + 2) + 's';
+            document.body.appendChild(heart);
+            setTimeout(() => { heart.remove(); }, 4000);
+        }
+
+        function runAway() {
+            const noBtn = document.getElementById('noBtn');
+            const maxX = window.innerWidth - noBtn.offsetWidth - 30;
+            const maxY = window.innerHeight - noBtn.offsetHeight - 30;
+            
+            const randomX = Math.max(20, Math.floor(Math.random() * maxX));
+            const randomY = Math.max(20, Math.floor(Math.random() * maxY));
+            
+            noBtn.style.position = 'fixed';
+            noBtn.style.left = randomX + 'px';
+            noBtn.style.top = randomY + 'px';
+            
+            createHeart();
+        }
+
+        function triggerSuccess() {
+            document.getElementById('overlay').classList.add('active');
+            document.getElementById('popup').classList.add('active');
+            for(let i=0; i<30; i++) {
+                setTimeout(createHeart, i * 150);
+            }
+        }
+
+        function closeAll() {
+            document.getElementById('overlay').classList.remove('active');
+            document.getElementById('popup').classList.remove('active');
+            meterValue = 0;
+            document.getElementById('meterFill').style.width = '0%';
+            document.getElementById('meterText').innerText = 'Meter: 0%';
+            document.getElementById('meterText').style.color = '#ff7675';
+            resetNoButton();
+        }
+    </script>
+</body>
+</html>
